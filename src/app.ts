@@ -1,7 +1,7 @@
 export class App {
   signature;
-  name = 'Test McTesterson';
-  position = 'Software Developer';
+  name = '';
+  position = '';
   img = 'http://imgur.com/N0JqEb7.png';
   phone = '';
   facebook = '';
