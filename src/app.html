@@ -32,9 +32,10 @@
       <label for="instagram">instagram</label>
       <input type="text" name="instagram" value.bind="instagram">
     </div>
+    <button type="button" name="button" click.trigger="copyToClipboard()"><i class="fa fa-clipboard"></i> Copy to Clipboard</button>
   </form>
 
-  <table border="0" cellspacing="0" cellpadding="0" width="470" style="width: 470px;">
+  <table border="0" cellspacing="0" cellpadding="0" width="470" style="width: 470px;" ref="signature">
     <tbody>
       <tr valign="top">
         <td style="padding-left:10px; width: 10px; padding-right:10px;">
