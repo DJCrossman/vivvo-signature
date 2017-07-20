@@ -1,35 +1,39 @@
 <template>
   <form class="form form-horizontal" style="width: 470px;margin: 150px;">
     <div class="form-group">
-      <label for="name">name</label>
+      <label for="name">Full Name: </label>
       <input type="text" name="name" value.bind="name">
     </div>
     <div class="form-group">
-      <label for="position">position</label>
+      <label for="position">Position: </label>
       <input type="text" name="position" value.bind="position">
     </div>
-    <div class="form-group">
-      <label for="img">img</label>
+    <!-- <div class="form-group">
+      <label for="img">Image: </label>
       <input type="text" name="img" value.bind="img">
-    </div>
+    </div> -->
     <div class="form-group">
-      <label for="phone">phone</label>
+      <label for="phone">Phone: </label>
       <input type="text" name="phone" value.bind="phone">
     </div>
     <div class="form-group">
-      <label for="facebook">facebook</label>
+      <label for="facebook">Facebook Link: </label>
       <input type="text" name="facebook" value.bind="facebook">
     </div>
     <div class="form-group">
-      <label for="linkedin">linkedin</label>
+      <label for="github">Github Link: </label>
+      <input type="text" name="github" value.bind="github">
+    </div>
+    <div class="form-group">
+      <label for="linkedin">LinkedIn Link: </label>
       <input type="text" name="linkedin" value.bind="linkedin">
     </div>
     <div class="form-group">
-      <label for="twitter">twitter</label>
+      <label for="twitter">Twitter Link: </label>
       <input type="text" name="twitter" value.bind="twitter">
     </div>
     <div class="form-group">
-      <label for="instagram">instagram</label>
+      <label for="instagram">Instagram: </label>
       <input type="text" name="instagram" value.bind="instagram">
     </div>
     <button type="button" name="button" click.trigger="copyToClipboard()"><i class="fa fa-clipboard"></i> Copy to Clipboard</button>
@@ -49,7 +53,7 @@
           </div>
           <div style="color:#8d8d8d;font-size:13px;padding:5px 0 0 0">
             <a href="tel:${formattedPhone}" style="color:#8d8d8d;text-decoration: none;">${formattedPhone}</a>
-            <span if.bind="phone" style="color: #45668e;display:inline-block;">|</span> <span if.bind="phone" style="white-space: nowrap;display:inline-block;">
+            <span if.bind="phone" style="color: #45668e;display:inline-block;"> |</span> <span if.bind="phone" style="white-space: nowrap;display:inline-block;">
               <a href="http://www.vivvo.com" target="_blank" style="color:#8d8d8d;text-decoration: none;">www.vivvo.com</a>
             </span>
           </div>
@@ -66,22 +70,27 @@
                     <span style="color: #45668e;display:inline-block;">|</span>
                   </td>
                   <td if.bind="facebook" align="left" style="padding-left: 5px;text-align: center;">
-                    <a href="https://facebook.com/${facebook}" target="_blank">
+                    <a href="${facebook}" target="_blank">
                       <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/2UJrwMf.png">
                     </a>
                   </td>
+                  <td if.bind="github" align="left" style="padding-left: 5px;text-align: center;">
+                    <a href="${github}" target="_blank">
+                      <img style="padding-top: 5px;" width="16" height="16" src="http://imgur.com/lXYrnWk.png">
+                    </a>
+                  </td>
                   <td if.bind="linkedin" align="left" style="padding-left: 5px;text-align: center;">
-                    <a href="https://us.linkedin.com/in/${linkedin}" target="_blank">
+                    <a href="${linkedin}" target="_blank">
                       <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/ksLvq7c.png">
                     </a>
                   </td>
                   <td if.bind="twitter" align="left" style="padding-left: 5px;text-align: center;">
-                    <a href="https://twitter.com/${twitter}" target="_blank">
+                    <a href="${twitter}" target="_blank">
                       <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/PZfIGAn.png">
                     </a>
                   </td>
                   <td if.bind="instagram" align="left" style="padding-left: 5px;text-align: center;">
-                    <a href="https://www.instagram.com/${instagram}" target="_blank">
+                    <a href="${instagram}" target="_blank">
                       <img style="padding-top: 5px;" width="16" height="16" src="http://imgur.com/AqphLeH.png">
                     </a>
                   </td>

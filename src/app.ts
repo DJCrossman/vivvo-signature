@@ -5,6 +5,7 @@ export class App {
   img = 'http://imgur.com/N0JqEb7.png';
   phone = '';
   facebook = '';
+  github = '';
   linkedin = '';
   twitter = '';
   instagram = '';
@@ -16,9 +17,9 @@ export class App {
     try {
       var successful = document.execCommand('copy');
       var msg = successful ? 'successful' : 'unsuccessful';
-      console.log('Copying text command was ' + msg);
+      alert('Copying text command was ' + msg);
     } catch (err) {
-      console.log('Oops, unable to copy');
+      alert('Oops, unable to copy');
     }
   }
 }
