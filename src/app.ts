@@ -12,6 +12,9 @@ export class App {
   get img() {
     return this.profile.img;
   }
+  get confidential() {
+    return this.profile.confidential;
+  }
   get phone() {
     return this.profile._phone.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
   }

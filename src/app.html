@@ -5,13 +5,13 @@
         <h1>Create a Email Signature</h1>
         <form class="form-horizontal">
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="name">Full Name: </label>
+            <label class="col-sm-3 control-label" for="name">Full Name:</label>
             <div class="col-sm-9">
               <input class="form-control" type="text" name="name" value.bind="profile.name">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-sm-3 control-label" for="position">Position: </label>
+            <label class="col-sm-3 control-label" for="position">Position:</label>
             <div class="col-sm-9">
               <input class="form-control" type="text" name="position" value.bind="profile.position">
             </div>
@@ -84,6 +84,12 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-3 control-label" for="confidential">Confidential Message:</label>
+            <div class="col-sm-9">
+              <input class="form-control" type="checkbox" name="confidential" checked.bind="profile.confidential">
+            </div>
+          </div>
+          <div class="form-group">
             <div class="col-sm-12">
               <button class="btn btn-default pull-right" type="button" name="button" click.trigger="copyToClipboard()"><i class="fa fa-clipboard"></i> Copy to Clipboard</button>
             </div>
@@ -98,70 +104,76 @@
       <div class="col-sm-6">
         <div class="preview">
           <h2>Preview:</h2>
-          <table border="0" cellspacing="0" cellpadding="0" width="470" style="width: 470px; solid #45668e;" ref="signature">
-            <tbody>
-              <tr valign="top">
-                <td style="padding-left:10px; width: 10px; padding-right:10px;">
-                  <img src="${img ||'http://imgur.com/N0JqEb7.png'}" width="65" height="65" alt="photo" style="-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;">
-                </td>
-                <td style="border-right: 1px solid #45668e;"></td>
-                <td style="text-align:initial; font:14px Arial;color:#646464;padding:0 10px">
-                  <div if.bind="name || position" >
-                    <b class="text-color theme-font" if.bind="name">${name}</b><br>
-                    <span if.bind="position">${position}</span><br/>
-                  </div>
-                  <div style="color:#8d8d8d;font-size:13px;padding:5px 0 0 0">
-                    <a href="tel:${phone}" style="color:#8d8d8d;text-decoration: none;">${phone}</a>
-                    <span if.bind="phone" style="color: #45668e;display:inline-block;">&nbsp;|&nbsp;</span>
-                    <span>
-                      <a href="http://www.vivvo.com" target="_blank" style="color:#8d8d8d;text-decoration: none;">www.vivvo.com</a>
-                    </span>
-                  </div>
-                  <div>
-                    <table border="0" cellpadding="0" cellspacing="0">
-                      <tbody>
-                        <tr>
-                          <td align="left" style="text-align: center;">
-                            <a href="http://www.vivvo.com" target="_blank">
-                              <img style="padding-top: 5px;" height="16" src="http://imgur.com/CSoTzzZ.png">
-                            </a>
-                          </td>
-                          <td if.bind="facebook || linkedin || twitter || instagram" align="left" style="padding: 5px;text-align: center;">
-                            <span style="color: #45668e;display:inline-block;">|</span>
-                          </td>
-                          <td if.bind="facebook" align="left" style="padding-left: 5px;text-align: center;">
-                            <a href="${facebook}" target="_blank">
-                              <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/2UJrwMf.png">
-                            </a>
-                          </td>
-                          <td if.bind="github" align="left" style="padding-left: 5px;text-align: center;">
-                            <a href="${github}" target="_blank">
-                              <img style="padding-top: 5px;" width="16" height="16" src="http://imgur.com/lXYrnWk.png">
-                            </a>
-                          </td>
-                          <td if.bind="linkedin" align="left" style="padding-left: 5px;text-align: center;">
-                            <a href="${linkedin}" target="_blank">
-                              <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/ksLvq7c.png">
-                            </a>
-                          </td>
-                          <td if.bind="twitter" align="left" style="padding-left: 5px;text-align: center;">
-                            <a href="${twitter}" target="_blank">
-                              <img style="padding-top: 5px;" width="16" height="16" src="http://i.imgur.com/PZfIGAn.png">
-                            </a>
-                          </td>
-                          <td if.bind="instagram" align="left" style="padding-left: 5px;text-align: center;">
-                            <a href="${instagram}" target="_blank">
-                              <img style="padding-top: 5px;" width="16" height="16" src="http://imgur.com/AqphLeH.png">
-                            </a>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div ref="signature">
+            <p if.bind="confidential" style="font-size:10px;">This email including attachments is confidential. If you are not the intended recipient, any redistribution or copying of this message is prohibited. If you have received this email in error please notify me immediately, by return email, and delete this email.</p>
+            <table border="0" cellspacing="0" cellpadding="0" width="470" style="width: 470px; solid #45668e;" >
+              <tbody>
+                <tr >
+                  <td colspan="3" ></td>
+                </tr>
+                <tr valign="top">
+                  <td style="padding-left:10px; width: 10px; padding-right:10px;">
+                    <img src="${img ||'http://imgur.com/N0JqEb7.png'}" width="65" height="65" alt="photo" style="-moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;">
+                  </td>
+                  <td style="border-right: 1px solid #45668e;"></td>
+                  <td style="text-align:initial; font:14px Arial;color:#646464;padding:0 10px">
+                    <div if.bind="name || position" >
+                      <b class="text-color theme-font" if.bind="name">${name}</b><br>
+                      <span if.bind="position">${position}</span><br/>
+                    </div>
+                    <div style="color:#8d8d8d;font-size:13px;padding:5px 0 0 0">
+                      <a href="tel:${phone}" style="color:#8d8d8d;text-decoration: none;">${phone}</a>
+                      <span if.bind="phone" style="color: #45668e;display:inline-block;">&nbsp;|&nbsp;</span>
+                      <span>
+                        <a href="http://www.vivvo.com" target="_blank" style="color:#8d8d8d;text-decoration: none;">www.vivvo.com</a>
+                      </span>
+                    </div>
+                    <div>
+                      <table border="0" cellpadding="0" cellspacing="0">
+                        <tbody>
+                          <tr>
+                            <td align="left" style="text-align: center;">
+                              <a href="http://www.vivvo.com" target="_blank">
+                                <img style="padding-top: 5px;" height="16" src="http://imgur.com/CSoTzzZ.png">
+                              </a>
+                            </td>
+                            <td if.bind="facebook || linkedin || twitter || instagram" align="left" style="padding: 5px;text-align: center;">
+                              <span style="color: #45668e;display:inline-block;">|</span>
+                            </td>
+                            <td if.bind="facebook" align="left" style="padding-left: 5px;text-align: center;">
+                              <a href="${facebook}" target="_blank">
+                                <img width="16" height="16" src="http://i.imgur.com/2UJrwMf.png">
+                              </a>
+                            </td>
+                            <td if.bind="github" align="left" style="padding-left: 5px;text-align: center;">
+                              <a href="${github}" target="_blank">
+                                <img width="16" height="16" src="http://imgur.com/lXYrnWk.png">
+                              </a>
+                            </td>
+                            <td if.bind="linkedin" align="left" style="padding-left: 5px;text-align: center;">
+                              <a href="${linkedin}" target="_blank">
+                                <img width="16" height="16" src="http://i.imgur.com/ksLvq7c.png">
+                              </a>
+                            </td>
+                            <td if.bind="twitter" align="left" style="padding-left: 5px;text-align: center;">
+                              <a href="${twitter}" target="_blank">
+                                <img width="16" height="16" src="http://i.imgur.com/PZfIGAn.png">
+                              </a>
+                            </td>
+                            <td if.bind="instagram" align="left" style="padding-left: 5px;text-align: center;">
+                              <a href="${instagram}" target="_blank">
+                                <img width="16" height="16" src="http://imgur.com/AqphLeH.png">
+                              </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
