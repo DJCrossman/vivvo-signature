@@ -7,25 +7,25 @@
           <div class="form-group">
             <label class="col-sm-3 control-label" for="name">Full Name: </label>
             <div class="col-sm-9">
-              <input class="form-control" type="text" name="name" value.bind="name">
+              <input class="form-control" type="text" name="name" value.bind="profile.name">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label" for="position">Position: </label>
             <div class="col-sm-9">
-              <input class="form-control" type="text" name="position" value.bind="position">
+              <input class="form-control" type="text" name="position" value.bind="profile.position">
             </div>
           </div>
           <!-- <div class="form-group">
             <label class="col-sm-3 control-label" for="img">Image: </label>
             <div class="col-sm-9">
-              <input class="form-control" type="text" name="img" value.bind="img">
+              <input class="form-control" type="text" name="img" value.bind="profile.img">
             </div>
           </div> -->
           <div class="form-group">
             <label class="col-sm-3 control-label" for="_phone">Phone: </label>
             <div class="col-sm-9">
-              <input class="form-control" type="text" name="_phone" value.bind="_phone">
+              <input class="form-control" type="text" name="_phone" value.bind="profile._phone">
             </div>
           </div>
           <div class="form-group">
@@ -35,7 +35,7 @@
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon">https://www.facebook.com/</span>
-                <input class="form-control" type="text" name="_facebook" value.bind="_facebook">
+                <input class="form-control" type="text" name="_facebook" value.bind="profile._facebook">
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon">https://github.com/</span>
-                <input class="form-control" type="text" name="_github" value.bind="_github">
+                <input class="form-control" type="text" name="_github" value.bind="profile._github">
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon">https://www.linkedin.com/in/</span>
-                <input class="form-control" type="text" name="_linkedin" value.bind="_linkedin">
+                <input class="form-control" type="text" name="_linkedin" value.bind="profile._linkedin">
               </div>
             </div>
           </div>
@@ -68,7 +68,7 @@
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon">https://twitter.com/</span>
-                <input class="form-control" type="text" name="_twitter" value.bind="_twitter">
+                <input class="form-control" type="text" name="_twitter" value.bind="profile._twitter">
               </div>
             </div>
           </div>
@@ -79,11 +79,20 @@
             <div class="col-sm-9">
               <div class="input-group">
                 <span class="input-group-addon">https://www.instagram.com/</span>
-                <input class="form-control" type="text" name="_instagram" value.bind="_instagram">
+                <input class="form-control" type="text" name="_instagram" value.bind="profile._instagram">
               </div>
             </div>
           </div>
-          <button class="btn btn-default pull-right" type="button" name="button" click.trigger="copyToClipboard()"><i class="fa fa-clipboard"></i> Copy to Clipboard</button>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <button class="btn btn-default pull-right" type="button" name="button" click.trigger="copyToClipboard()"><i class="fa fa-clipboard"></i> Copy to Clipboard</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12 text-center">
+              <p class.bind="copyMessage == 'Oops, unable to copy' ? 'bg-danger' : 'bg-info'">${copyMessage}</p>
+            </div>
+          </div>
         </form>
       </div>
       <div class="col-sm-6">
